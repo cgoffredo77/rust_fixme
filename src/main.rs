@@ -1,6 +1,8 @@
 use std::fmt::{self, Formatter, Display};
 
 /* Demonstrates printing of a user defined struct using println! macro.*/
+///This program shows how to print a struct using println! without the debug trait.
+///It first creates a struct named City giving it a name, latitude, and longitude.
 
 struct City {
     name: &'static str,
@@ -9,6 +11,8 @@ struct City {
     // Longitude
     lon: f32,
 }
+
+///Then, it impliments the Display trait for the City struct, and helps format what the output of using println! on the struct would be.
 
 impl Display for City {
     // `f` is a buffer, this method must write the formatted string into it
@@ -22,12 +26,15 @@ impl Display for City {
     }
 }
 
-#[derive(Debug)]
+///Next, we create a struct called color, giving it a u8 value for red, greed, and blue.
+
 struct Color {
     red: u8,
     green: u8,
     blue: u8,
 }
+
+///The program then does the same thing for this struct as it did for City (implementing the Display trait and formatting).
 
 impl Display for Color{
   fn fmt(&self, f: &mut Formatter) -> fmt::Result {
@@ -35,6 +42,9 @@ impl Display for Color{
    write!(f, "red: {},green: {},blue: {}", self.red, self.green, self.blue )
    }  
 }
+
+///In the main function of the code, we are simply making a City struct named 'city' and a Color struct named 'color'.
+///We then give values to color and city, and then print these structs with println! (using {}, without the debug trait {:?})
 
 fn main() {
     for city in [
