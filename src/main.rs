@@ -54,4 +54,3 @@ fn main() {
         println!("{}", *color);
     }
 }
-g
